@@ -64,6 +64,7 @@
 		<source-file src="src/android/com/plugin/gcm/PushHandlerActivity.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/gcm/PushPlugin.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/android-support-v13.jar" target-dir="libs/" />
+                <source-file src="src/android/res/drawable/notification_icon.png" target-dir="res/drawable"/>
 
 	</platform>
 

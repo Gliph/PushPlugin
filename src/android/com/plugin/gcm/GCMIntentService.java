@@ -10,6 +10,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -106,11 +108,15 @@ public class GCMIntentService extends GCMBaseIntentService {
         if (sound == null) {
             defaults = 0;
         }
+
+        int iconId = context.getResources().getIdentifier("notification_icon", "drawable", context.getPackageName());
+        Bitmap largeIcon = ((BitmapDrawable) context.getResources().getDrawable(context.getApplicationInfo().icon)).getBitmap();
         
         NotificationCompat.Builder mBuilder =
             new NotificationCompat.Builder(context)
                 .setDefaults(defaults)
-                .setSmallIcon(context.getApplicationInfo().icon)
+                .setSmallIcon(iconId)
+                .setLargeIcon(largeIcon)
                 .setWhen(System.currentTimeMillis())
                 .setContentTitle("Gliph Notification")
                 .setTicker("Gliph Notification")
